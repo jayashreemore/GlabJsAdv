@@ -44,6 +44,9 @@ adventurer.roll();
 /// Part 2 
 
 class Character {
+    //add a static  MAX_HEALTH property to the Character class equal to 100.
+    //can only be accessed by the class itself by doing console.log(Character.MAX_HEALTH);
+    static MAX_HEALTH = 100;
     constructor(name) {
         this.name = name;
         this.health = 100;
@@ -72,8 +75,11 @@ robin.companion.companion.roll();
 
 /// Part 3 
 
+//Part 3: Class Features
 class Adventurer extends Character {
-    constructor(name, role) {
+    // Add a static ROLES array to the Adventurer class, with the values “Fighter,” “Healer,” and “Wizard.” Feel free to add other roles, if you desire!
+    static ROLES = ['Fighter', 'Healer', 'Wizard'];
+    constructor(name, role,) {
         super(name);
         // Adventurers have specialized roles.
         this.role = role;
@@ -85,26 +91,40 @@ class Adventurer extends Character {
         console.log(`${this.name} is scouting ahead...`);
         super.roll();
     }
-    investigate() {
-        console.log(`${this.name} is investigating...`);
+    discover(){
+        console.log(`${this.name} is discovering...`);
         super.roll();
     }
-    charm() {
-        console.log(`${this.name} is putting charm...`);
+    fish(){
+        console.log(`${this.name} is fishing...`);
         super.roll();
     }
-
+    addItems(items){
+    console.log(this.inventory.push(items));
+    }
 }
-let Keoti = new Adventurer("keoti" , "Rogue");
-//console.log(Keoti.investigate());
-Keoti.charm();
-Keoti.investigate();
+console.log(Adventurer.ROLES);
+const Jaya = new Adventurer ('Jaya', 'girl scout');
+console.log(Jaya);
 
+Jaya.fish();
 
-
-
-
-
-
-
-
+//Next, create a Companion class with properties and methods specific to the companions.
+class Companion extends Character {
+    constructor(name, type){
+        super(name);
+        this.name = name;
+        this.type = type;
+    }
+    //methods
+    assist(){
+        console.log (`${this.name} is a ${this.type} assisting the adventurer.`)
+    }
+}
+const Tinkerbell = new Companion ("Tinkerbell", "fairy");
+Tinkerbell.assist();
+//answer: Tinkerbell is a fairy assisting the adventurer.
+// Finally, change the declaration of Robin and the companions to use the new Adventurer and Companion classes.
+let Robin = new Adventurer('Robin','adventurer');
+let Leo = new Companion('Leo', 'cat');
+let Frank = new Companion ('Frank', 'flea');

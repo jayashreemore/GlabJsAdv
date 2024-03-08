@@ -75,3 +75,36 @@ class Companion {
     }
     // Additional methods specific to companions can be added here.
 }
+////////////////part 4
+
+class Character {
+    static MAX_HEALTH = 100;
+    constructor(name) {
+        this.name = name;
+        this.health = Character.MAX_HEALTH;
+    }
+}
+
+// Example usage:
+const player = new Character("Alice");
+console.log(`${player.name}'s max health: ${Character.MAX_HEALTH}`);
+
+class Adventurer {
+    static ROLES = ["Fighter", "Healer", "Wizard"];
+
+    constructor(name, role) {
+        this.name = name;
+        if (!Adventurer.ROLES.includes(role)) {
+            throw new Error(`Invalid role: ${role}. Must be one of ${Adventurer.ROLES.join(", ")}`);
+        }
+        this.role = role;
+    }
+}
+
+// Example usage:
+try {
+    const warrior = new Adventurer("Bob", "Fighter");
+    console.log(`${warrior.name} is a ${warrior.role}.`);
+} catch (error) {
+    console.error(error.message);
+}
