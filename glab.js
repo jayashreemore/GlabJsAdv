@@ -78,7 +78,7 @@ robin.companion.companion.roll();
 //Part 3: Class Features
 class Adventurer extends Character {
     // Add a static ROLES array to the Adventurer class, with the values “Fighter,” “Healer,” and “Wizard.” Feel free to add other roles, if you desire!
-    static ROLES = ['Fighter', 'Healer', 'Wizard'];
+    static ROLES = ['Fighter', 'Healer', 'Wizard'];////part 4 static roles added ////
     constructor(name, role,) {
         super(name);
         // Adventurers have specialized roles.
@@ -110,6 +110,7 @@ console.log(Jaya);
 Jaya.fish();
 
 //Next, create a Companion class with properties and methods specific to the companions.
+////part 4 character //////
 class Companion extends Character {
     constructor(name, type){
         super(name);
